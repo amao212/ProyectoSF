@@ -1,7 +1,5 @@
 package UI;
 
-import javax.swing.ImageIcon;
-import javax.swing.JWindow;
 import javax.swing.*;
 import java.awt.*;
 
@@ -22,7 +20,7 @@ public class Splash extends JWindow {
 
     }
 
-    public void show(int elapsedTime) {
+    public void showSplash(int elapsedTime) {
         jw.setVisible(true);
         try {
             Thread.sleep(elapsedTime);
@@ -32,4 +30,7 @@ public class Splash extends JWindow {
         jw.setVisible(false);
         jw.dispose();
     }
+
+
+
 }
