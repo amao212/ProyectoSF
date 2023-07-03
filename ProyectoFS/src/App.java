@@ -1,5 +1,9 @@
+import UI.Splash;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("hola mundo");
+       
+        var splash = new Splash();
+        splash.show(5000);
     }
 }
