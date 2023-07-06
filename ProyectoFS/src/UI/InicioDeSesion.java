@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginApp extends JFrame {
+public class InicioDeSesion extends JFrame {
     private JPanel panel;
     private JLabel lblUsuario;
     private JTextField txtUsuario;
@@ -14,8 +14,11 @@ public class LoginApp extends JFrame {
     private JLabel lblEspacio1;
     Color colorNegro = Color.BLACK;
 
-
-    public LoginApp() {
+    /**
+     * Constructor para inicio de sesión.
+     * Crea la panatalla de inicio de sesión.
+     */
+    public InicioDeSesion() {
         setTitle("SISTEMA DE FACTURACION BUHO");
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,6 +76,16 @@ public class LoginApp extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "El usuario o la contraseña no son correctas");
                 }
+            }
+        });
+    }
+    /**
+     * Muestra la pantalla del inicio de sesión.
+     */
+    public static void mostrarInicio(){
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new InicioDeSesion().setVisible(true);
             }
         });
     }
