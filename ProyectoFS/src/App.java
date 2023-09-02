@@ -1,5 +1,5 @@
-import UI.InicioDeSesion;
-import UI.panatallaCarga;
+import UserInterface.InicioDeSesion;
+import UserInterface.panatallaCarga;
 
 public class App {
     public static void main(String[] args) throws Exception {
