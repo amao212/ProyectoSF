@@ -1,10 +1,13 @@
-package UserInterface;
+package UserInterface.App;
 import javax.swing.*;
+
+import UserInterface.CustomerControl.BuLabel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InicioDeSesion extends JFrame {
+public class PInicioDeSesion extends JFrame {
     private JPanel panel;
     private JLabel lblUsuario;
     private JTextField txtUsuario;
@@ -12,18 +15,19 @@ public class InicioDeSesion extends JFrame {
     private JPasswordField txtContraseña;
     private JButton btnIngresar;
     private JLabel lblEspacio1;
-    Color colorNegro = Color.BLACK;
+ 
 
     /**
      * Constructor para inicio de sesión.
      * Crea la panatalla de inicio de sesión.
      */
-    public InicioDeSesion() {
+    public PInicioDeSesion() {
         setTitle("SISTEMA DE FACTURACION BUHO");
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        setResizable(false);
 
 
         ImageIcon backgroundImg = new ImageIcon("ProyectoFS\\src\\UserInterface\\img\\login.JPG"); 
@@ -37,17 +41,21 @@ public class InicioDeSesion extends JFrame {
     
         panel = new JPanel();
         panel.setOpaque(false); 
-        panel.setLayout(new GridLayout(4,2));
+        panel.setLayout(new GridLayout(5,2));
 
-        lblUsuario = new JLabel("Usuario :");
-        lblUsuario.setForeground(colorNegro);
+        lblUsuario = new BuLabel("Usuario :",  Color.BLACK, new Font("MesloLGL Nerd Font", Font.BOLD ,  20));
         panel.add(lblUsuario);
 
         txtUsuario = new JTextField(15);
         panel.add(txtUsuario);
 
-        lblClave = new JLabel("Contraseña :");
-        lblClave.setForeground(colorNegro);
+        lblEspacio1 = new JLabel("");
+        panel.add(lblEspacio1);
+
+        lblEspacio1 = new JLabel("");
+        panel.add(lblEspacio1);
+
+        lblClave = new BuLabel("Contraseña :", Color.BLACK, new Font("MesloLGL Nerd Font", Font.BOLD ,  20));
         panel.add(lblClave);
 
         txtContraseña = new JPasswordField(15);
@@ -85,7 +93,7 @@ public class InicioDeSesion extends JFrame {
     public static void mostrarInicio(){
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new InicioDeSesion().setVisible(true);
+                new PInicioDeSesion().setVisible(true);
             }
         });
     }

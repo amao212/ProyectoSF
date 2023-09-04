@@ -1,10 +1,10 @@
-package UserInterface;
+package UserInterface.App;
 
 import javax.swing.*;
 import java.awt.*;
 
 
-public class panatallaCarga extends JWindow {
+public class PPanatallaCarga extends JWindow {
     private JWindow jw;
     private final String direccion = "ProyectoFS\\src\\UserInterface\\img\\splash3.gif";
     private final static int time = 5000;
@@ -13,7 +13,7 @@ public class panatallaCarga extends JWindow {
      * Constructor para la pantalla de carga.
      * Crea la panatalla de panatalla de carga (Splash)
      */
-    public panatallaCarga() {
+    public PPanatallaCarga() {
         jw = new JWindow();
         var image = new ImageIcon(direccion);
         jw.getContentPane().add(new JLabel("", image, SwingConstants.CENTER));
@@ -42,7 +42,7 @@ public class panatallaCarga extends JWindow {
      * Muestra la pantalla de carga (Splash)
      */
     public static void mostrarPantallaDeCargaP(){
-        var splash = new panatallaCarga();
+        var splash = new PPanatallaCarga();
         splash.cargarPantallaDeCarga(time);
     }
 }
