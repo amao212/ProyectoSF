@@ -58,4 +58,10 @@ CREATE TABLE FACTURA
 
 );
 
+SELECT Id_Factura, b.Usuario_Id, c.Cliente_Nombre, d. Inventario_Nombre_Producto
+FROM FACTURA a
+JOIN USUARIO b  ON a.Usuario_Id = b.Usuario_Id
+JOIN CLIENTE c 	ON a.Cliente_Id_Cliente = c.Cliente_Id_Cliente
+JOIN INVENTARIO d 	ON a.Inventario_Id = d.Inventario_Id
+
 

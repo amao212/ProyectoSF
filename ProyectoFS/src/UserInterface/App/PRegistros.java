@@ -6,8 +6,10 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Label;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,13 +23,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import BusinessLogic.FacturaBL;
+import BusinessLogic.Entities.Factura;
+import Framework.AppException;
+
 public class PRegistros extends JFrame{
         private JPanel panel1, panel2, panel3, panel4, panel5;
         private JMenuBar menuBar;
         private JMenu menu;
         private JMenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5;
 
-    public PRegistros() {
+    public PRegistros() throws AppException {
         JFrame f = new JFrame("REGISTROS");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
@@ -152,7 +158,7 @@ public class PRegistros extends JFrame{
         JLabel lblCiEmpleado      = new JLabel("Ci Empleado:");
         JLabel lblNombreEmpleado   = new JLabel("Nombre :");
         JLabel lblApellidoEmpleado            = new JLabel("Apellido :");
-        JLabel lblva1 = new JLabel(""); 
+        JLabel lblva1 = new JLabel("hola mundo"); 
         JLabel lblva2 = new JLabel("");
         JLabel lblva3 = new JLabel(""); 
         JLabel lblva4 = new JLabel("");
@@ -331,8 +337,38 @@ public class PRegistros extends JFrame{
 
 
         
-        panel5 = new JPanel();
+        panel5 = new JPanel(new BorderLayout());
+        FacturaBL facturaBL = new FacturaBL();
 
+        String[] titulo = { "IdFactura",
+                            "Usuario",
+                            "Cliente",
+                            "Inventario",
+                            "Estado",
+                            "Total",
+                            "FechaIngreso",
+                            "FechaModificado"};
+        Object[][] datos = new Object[facturaBL.obtenerDatos().size()][8];
+        int index = 0;
+        for (Factura factura : facturaBL.obtenerDatos()) {
+            datos[index][0]= factura.getIdFactura();
+            datos[index][1]= factura.getUsuarioId();
+            datos[index][2]= factura.getClienteIdCliente();
+            datos[index][3]= factura.getIdFactura();
+            datos[index][4]= factura.getEstadoFactura();
+            datos[index][5]= factura.getTotalFactura();
+            datos[index][6]= factura.getFechaIngresFactura();
+            datos[index][7]= factura.getFechaModificacionFactura();
+            index ++;
+        }
+
+        JTable table5 = new JTable(datos, titulo);
+        JScrollPane scrollPane5 = new JScrollPane(table5);
+        table5.setBackground(Color.GRAY);
+        panel5.add(scrollPane5, BorderLayout.CENTER);
+
+        JPanel bottomPanel5 = new JPanel();
+        bottomPanel5.setLayout(new GridLayout(3,4));
 
         // Crear la barra de menú
         menuBar = new JMenuBar();
