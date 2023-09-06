@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 import Framework.AppException;
 
-public class SQLiteDataHelper {
-    private static String DBPathConnection = "jdbc:sqlite:ProyectoFS\\database\\SistemaFacturacion.db"; //null;
+public abstract class SQLiteDataHelper {
+    private static String DBPathConnection = "jdbc:sqlite:C:\\PROGRAMACION_II\\PROYECTO\\ProyectoSF\\ProyectoFS\\database\\SistemaFacturacion.db"; //null;
     private static Connection conn = null;
     public SQLiteDataHelper(){
         // if (!dbPathConnection.isEmpty())
@@ -19,7 +19,7 @@ public class SQLiteDataHelper {
         try {
             if(conn == null)
                 conn = DriverManager.getConnection(DBPathConnection);
-            //System.out.println("Connection to SQLite has been established.");
+            System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
             throw new AppException(e,"SQLiteDataHelper","Fallo la coneccion a la base de datos");
         } 
