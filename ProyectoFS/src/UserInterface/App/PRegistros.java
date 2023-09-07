@@ -3,6 +3,8 @@ package UserInterface.App;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Label;
@@ -339,6 +341,7 @@ public class PRegistros extends JFrame{
         
         panel5 = new JPanel(new BorderLayout());
         FacturaBL facturaBL = new FacturaBL();
+        setGridBagLayout();
 
         String[] titulo = { "IdFactura",
                             "Usuario",
@@ -443,6 +446,31 @@ public class PRegistros extends JFrame{
         
     }
 
-    
+    public void setGridBagLayout(){
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc= new GridBagConstraints();
+
+        // GridBagConstraints.ponerComponentes
+        gbc.gridy = 0;       gbc.gridx=0;  //| fila,  columna
+        gbc.gridwidth=3;                   //| celdas a unir
+        //add(lblTitulo, gbc);               //| agrega el control
+
+        gbc.gridy = 1;       gbc.gridx=0;   
+        gbc.gridwidth=1;                     
+        add(new JLabel("■ Sección de datos: "), gbc);  
+        
+        gbc.gridy = 2;       gbc.gridx=0;
+        gbc.gridwidth=3;                   //| celdas a unir
+        gbc.ipady = 150;                   //| tamaño alto
+        gbc.ipadx = 450;                   //| tamaño ancho ... luego se debe restablecer a 1 o 0
+        //pnlTabla.add(new Label("Loading data..."));
+        //add(pnlTabla, gbc);
+
+        gbc.ipady = 1;                    //| Restablecer el tamaño de fila y columna
+        gbc.ipadx = 1;
+
+        gbc.gridy = 4;       gbc.gridx=0; 
+        gbc.gridwidth=1;    
+    }
     
 }

@@ -29,6 +29,9 @@ CREATE TABLE USUARIO
 	Usuario_FechaModificacion	DATETIME	NOT NULL
 );
 
+INSERT INTO USUARIO (Usuario_Credencial, Usuario_PASSWORD, Usuario_Nombre, Usuario_Apellido, Usuario_Cedula, Usuario_Estado, Usuario_FechaIngreso, Usuario_FechaModificacion) 
+VALUES ("42398429","adm","ad","49303471","adminn","A",DATE(),DATE());
+
 CREATE TABLE INVENTARIO
 (
 	Inventario_Id					INTEGER		PRIMARY KEY AUTOINCREMENT,
@@ -57,11 +60,14 @@ CREATE TABLE FACTURA
 	FOREIGN KEY (Inventario_Id) 		REFERENCES 	INVENTARIO(Inventario_Id)
 
 );
+INSERT INTO FACTURA(Usuario_Id, Cliente_Id_Cliente, Inventario_Id,Estado_Factura,Total_Factura, FechaIngreso_Factura,FechaModificacion_Factura)
+VALUES (1,2,3,"A","3243",DATE(),DATE());
 
 SELECT Id_Factura, b.Usuario_Id, c.Cliente_Nombre, d. Inventario_Nombre_Producto
 FROM FACTURA a
 JOIN USUARIO b  ON a.Usuario_Id = b.Usuario_Id
 JOIN CLIENTE c 	ON a.Cliente_Id_Cliente = c.Cliente_Id_Cliente
 JOIN INVENTARIO d 	ON a.Inventario_Id = d.Inventario_Id
+INSERT INTO USUARIO (Usuario_Credencial, Usuario_PASSWORD, Usuario_Nombre, Usuario_Apellido, Usuario_Cedula, Usuario_Estado, Usuario_FechaIngreso, Usuario_FechaModificacion) VALUES ("admin",1,"adm","ad","a","adminn","A",DATE(),DATE());
 
 

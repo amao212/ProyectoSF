@@ -15,14 +15,14 @@ public class FacturaBL {
             List <Factura> lstFactura = new ArrayList<Factura>();
             ResultSet rs = new FacturaDAC().getAllData();
             while (rs.next()) {
-                Factura f = new Factura(rs.getInt("idFactura"),
-                                        rs.getInt("usuarioId"),
-                                        rs.getInt("clienteIdCliente"),
-                                        rs.getInt("inventarioId"),
-                                        rs.getString("estadoFactura"),
-                                        rs.getString("totalFactura"),
-                                        rs.getString("fechaIngresoFactura"),
-                                        rs.getString("fehcaModificacionFactura"));
+                Factura f = new Factura(rs.getInt("Id_Factura"),
+                                        rs.getInt("usuario_Id"),
+                                        rs.getInt("cliente_Id_Cliente"),
+                                        rs.getInt("inventario_Id"),
+                                        rs.getString("estado_Factura"),
+                                        rs.getString("total_Factura"),
+                                        rs.getString("fechaIngreso_Factura"),
+                                        rs.getString("fechaModificacion_Factura"));
                 lstFactura.add(f);
             }
             return lstFactura;
